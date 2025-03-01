@@ -4,115 +4,75 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     color: #333;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 .dark-mode {
-    background: #1e1e1e;
-    color: white;
+    background-color: #121212;
+    color: #f4f4f4;
 }
 
 nav {
-    background: #222;
-    color: white;
-    padding: 15px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.logo {
-    margin: 0;
-    font-size: 1.5em;
-}
-
-.nav-links a {
+    padding: 1rem;
+    background: #222;
     color: white;
-    text-decoration: none;
-    margin-left: 20px;
 }
 
 .moon-button {
     background: none;
     border: none;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     cursor: pointer;
-    margin-left: auto;
+    color: white;
 }
 
 .container {
     width: 90%;
-    max-width: 800px;
-    margin: auto;
-    background: white;
+    max-width: 600px;
+    margin: 20px auto;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .container {
+    background: #1e1e1e;
 }
 
 .announcements {
-    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .announcement {
     padding: 15px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
+    border-left: 5px solid #007bff;
+    background: #fff;
+    border-radius: 5px;
 }
 
-.announcement-header {
-    display: flex;
-    align-items: center;
-}
-
-.profile-pic {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.username {
-    font-weight: bold;
+.dark-mode .announcement {
+    background: #2a2a2a;
 }
 
 .timestamp {
+    font-size: 0.8rem;
     color: gray;
-    margin-left: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #222;
-    color: white;
-    margin-top: 20px;
 }
 
 button {
-    background-color: #007BFF;
+    padding: 10px;
+    background: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background: #0056b3;
 }
