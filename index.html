@@ -5,44 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.P. Initiative - Announcements & Communication</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function checkForAnnouncements() {
-            fetch('https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/YOUR_REPO/main/announcements.json')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.latest) {
-                        const announcementsContainer = document.getElementById('announcements');
-                        announcementsContainer.innerHTML = '';
-                        data.latest.forEach((announcement, index) => {
-                            const announcementDiv = document.createElement('div');
-                            announcementDiv.classList.add('announcement');
-                            announcementDiv.innerHTML = `
-                                <div class="announcement-header">
-                                    <img src="profile.png" alt="Profile" class="profile-pic">
-                                    <span class="username">A.P. Initiative</span>
-                                    <span class="timestamp">${announcement.timestamp}</span>
-                                </div>
-                                <p>${announcement.text}</p>
-                            `;
-                            announcementsContainer.appendChild(announcementDiv);
-                        });
-                    }
-                })
-                .catch(error => console.error('Error fetching announcements:', error));
-        }
-        setInterval(checkForAnnouncements, 60000);
-
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
-            localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
-        }
-        window.onload = function() {
-            if (localStorage.getItem("darkMode") === "true") {
-                document.body.classList.add("dark-mode");
-            }
-            checkForAnnouncements();
-        }
-    </script>
+    <script src="sms_verification.js" defer></script>
 </head>
 <body>
     <nav>
@@ -64,15 +27,32 @@
         <section class="container" id="subscribe">
             <h2>Subscribe to Our Newsletter</h2>
             <form action="https://formsubmit.co/el/yutelo" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required>
-                <input type="tel" name="phone" placeholder="Enter your phone (optional)">
+                <input type="email" name="email" placeholder="Enter your email">
                 <button type="submit">Subscribe</button>
             </form>
         </section>
+        
+        <section class="container" id="sms-subscribe">
+            <h2>Subscribe via SMS</h2>
+            <form id="sms-subscribe-form">
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                <button type="submit">Send Verification Code</button>
+            </form>
+            <div id="verification-section" style="display:none;">
+                <h3>Enter Verification Code</h3>
+                <form id="sms-verify-form">
+                    <input type="text" id="verification-code" placeholder="Enter code" required>
+                    <button type="submit">Verify & Subscribe</button>
+                </form>
+            </div>
+            <p id="sms-status"></p>
+        </section>
+
         <section class="container announcements">
             <h2>Latest Announcements</h2>
             <div id="announcements">Loading...</div>
         </section>
+        
         <section class="container contact-form" id="contact">
             <h2>Contact Us</h2>
             <form action="https://formsubmit.co/el/yutelo" method="POST">
