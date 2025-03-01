@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 phone: currentPhone,
-                message: "Your verification code is 123456", // Replace with a random code generator for real use
+                message: "Your verification code is 123456",
                 key: "textbelt"
             })
         })
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     verifyForm.addEventListener("submit", function (event) {
         event.preventDefault();
         
-        if (codeInput.value === "123456") { // Replace with actual verification logic
+        if (codeInput.value === "123456") { 
             alert("Phone number verified and subscribed!");
         } else {
             alert("Incorrect verification code. Please try again.");
