@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     OneSignal.push(function () {
         OneSignal.init({
-            appId: "YOUR-ONESIGNAL-APP-ID",
+            appId: "e7924c93-7f3c-4071-9d74-501269d4c4a6",
             notifyButton: {
                 enable: true,
             },
