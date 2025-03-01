@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A.P. Initiative - Announcements & Communication</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="sms_verification.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
 </head>
 <body>
     <nav>
         <div class="nav-container">
             <h1 class="logo">A.P. Initiative</h1>
-            </div>
-            <button class="moon-button" onclick="toggleDarkMode()">🌙</button>
         </div>
+        <button class="moon-button" onclick="toggleDarkMode()">🌙</button>
     </nav>
     <header>
         <h1>Welcome to A.P. Initiative</h1>
@@ -22,26 +22,11 @@
     <main>
         <section class="container" id="subscribe">
             <h2>Subscribe to Our Newsletter</h2>
-            <form action="https://formsubmit.co/el/yutelo" method="POST">
-                <input type="email" name="email" placeholder="Enter your email">
+            <form id="email-subscribe-form" action="YOUR_GETFORM_URL" method="POST">
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 <button type="submit">Subscribe</button>
             </form>
-        </section>
-        
-        <section class="container" id="sms-subscribe">
-            <h2>Subscribe via SMS</h2>
-            <form id="sms-subscribe-form">
-                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
-                <button type="submit">Send Verification Code</button>
-            </form>
-            <div id="verification-section" style="display:none;">
-                <h3>Enter Verification Code</h3>
-                <form id="sms-verify-form">
-                    <input type="text" id="verification-code" placeholder="Enter code" required>
-                    <button type="submit">Verify & Subscribe</button>
-                </form>
-            </div>
-            <p id="sms-status"></p>
+            <p id="email-status"></p>
         </section>
 
         <section class="container announcements">
@@ -51,12 +36,13 @@
         
         <section class="container contact-form" id="contact">
             <h2>Contact Us</h2>
-            <form action="https://formsubmit.co/el/yutelo" method="POST">
+            <form id="contact-form">
                 <input type="text" name="name" placeholder="Your Name" required>
                 <input type="email" name="email" placeholder="Your Email" required>
                 <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
                 <button type="submit">Send</button>
             </form>
+            <p id="contact-status"></p>
         </section>
     </main>
     <footer>
